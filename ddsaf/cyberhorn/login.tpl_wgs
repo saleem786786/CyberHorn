@@ -1,0 +1,403 @@
+<div id="root" class="login_page">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/mattkingshott/iodine/dist/iodine.min.umd.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+     
+    <div>
+
+        <div class="login-layout_LoginLayout__1IkN9">
+            <img src="./../en/img/logo-icon.png" class="cyberlogo" />
+            <style>
+                html,
+                body,
+                div#root>div,
+                div#root>div>div,
+                div#root {
+                    height: 100%;
+                }
+
+                .btn .fa,
+                .btn .fas,
+                .btn .lm,
+                .btn .ls,
+                .btn i,
+                input[type=button]:not(.btn) .fa,
+                input[type=button]:not(.btn) .fas,
+                input[type=button]:not(.btn) .lm,
+                input[type=button]:not(.btn) .ls,
+                input[type=button]:not(.btn) i,
+                input[type=submit]:not(.btn) .fa,
+                input[type=submit]:not(.btn) .fas,
+                input[type=submit]:not(.btn) .lm,
+                input[type=submit]:not(.btn) .ls,
+                input[type=submit]:not(.btn) i {
+                    margin-right: 0px !important;
+                }
+
+                [x-cloak] {
+                    display: none;
+                }
+                .reg-step-2 .login-title {
+    color: var(--login-title-color);
+    font-size: 26px;
+    font-weight: var(--login-title-font-weight);
+    line-height: var(--login-title-line-height);
+}
+       .lightgray{
+            border: 1px solid #bbbbbb !important;
+        }
+
+.reg-step-2{
+    margin-top: 3rem;
+    display: none;
+}
+@media (max-width: 990px) {
+  .backToSite {
+    position: absolute;
+    height: auto!important;
+    bottom: 0;
+    left: 24px;
+    font-size: 16px;
+    line-height: 120%;
+    margin-bottom:20px;
+}
+                
+
+    
+
+            </style>
+
+
+            <div class="login-layout_inputsWrapper__1jd6B">
+
+
+                <div class="app-main">
+                    <div class="main-body">
+                     {include file="$template/includes/login/register-form-step2.tpl"}
+                        <div class="containers" x-data="auth()">
+                            {* loginform design *}
+                            {include file="$template/includes/login/login-form-new.tpl"}
+
+                            {* signup form design 
+
+                            {include file="$template/includes/login/register-form-new.tpl"}
+                            *}
+
+                            {* password forget form design start*}
+                            {include file="$template/includes/login/resetpass-form-new.tpl"}
+
+                            {* password forget form design end*}
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="login-layout_image__1HvSb">
+
+                <img src="./../en/img/login-sidebar.png" class="right-login-img" style="height: 420px">
+
+                <div class="login-layout-title mt-15">{$LANG.loginImageTextHeading}</div>
+            </div>
+            <div class="backToSite"><a href="https://cyberpower.co.il/" ><img
+                        src="./../en/fonts/cyberpowersvg/arrow-left.svg"><span>{$LANG.backToSite}</span></a></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    jQuery('.icheck-control').iCheck({
+        checkboxClass: 'checkbox-styled',
+        radioClass: 'radio-styled',
+        increaseArea: '40%'
+    });
+
+
+    function auth() {
+        return {
+            loginform: {
+                username: "",
+                password: "",
+                'g-recaptcha-response':''
+            },
+            registerform: {
+                username: "",
+                password: "",
+                'g-recaptcha-response':'',
+                terms:false
+            },
+            resetform: {
+                email: "",
+                'g-recaptcha-response':'',
+            },
+            usernameerror: { errorMessage: "", blurred: false },
+            passworderror: { errorMessage: "", blurred: false },
+            loginAction:'',
+            registerAction:'',
+            resetAction:'',
+            loginErrorMessage:"",
+            registerErrorMessage:"",
+            resetErrorMessage:"",
+            resetSuccessMessage:'',
+            showlogin: true,
+            showregister: false,
+            showresetpass: false,
+            pwcolor(level){
+                var color='bg-gray-300';
+                var strength=this.getPasswordStrength(this.registerform.password);
+                if(strength>10 && strength<=30){
+                    color='bg-red-300';
+                }else  if(strength>30 && strength<=50){
+                    color='bg-orange-300';
+                }else if (strength>50 && strength<=80){
+                    color='bg-blue-300';
+                }else if (strength>80){
+                    color='bg-green-300';
+                }
+                if(level==2 && strength<=30){
+                    color='bg-gray-300';
+                }else  if(level==3 && strength<=50){
+                    color='bg-gray-300';
+                }else if (level==4 && strength<=80){
+                    color='bg-gray-300';
+                }
+                return color;
+            },
+            getPasswordStrength(pw){
+                var pwlength=(pw.length);
+                if(pwlength>5){
+                    pwlength=5;
+                }
+                var numnumeric=pw.replace(/[0-9]/g,"");
+                var numeric=(pw.length-numnumeric.length);
+                if(numeric>3){
+                    numeric=3;
+                }
+                var symbols=pw.replace(/\W/g,"");
+                var numsymbols=(pw.length-symbols.length);
+                if(numsymbols>3){
+                    numsymbols=3;
+                }
+                var numupper=pw.replace(/[A-Z]/g,"");
+                var upper=(pw.length-numupper.length);
+                if(upper>3){
+                    upper=3;
+                }
+                var pwstrength=((pwlength*10)-20)+(numeric*10)+(numsymbols*15)+(upper*10);
+                if(pwstrength<0){
+                    pwstrength=0;
+                }
+                if(pwstrength>100){
+                    pwstrength=100;
+                }
+                return pwstrength;
+            },
+            doLogin() {
+                this.buttonLabel = "Submitting...";
+                this.loading = true;
+                this.message = "";
+                var hasErrors = false;
+                this.inputElements = [...this.$el.querySelectorAll("input[data-rules]")];
+                this.inputElements.map((input) => {
+                    if (Iodine.is(input.value, JSON.parse(input.dataset.rules)) !== true) {
+                        const error = Iodine.is(input.value, JSON.parse(input.dataset.rules));
+                        event.preventDefault();
+                        input.classList.add("invalid");
+                        this[input.name+"error"].errorMessage = Iodine.getErrorMessage(error);
+                        hasErrors = true;
+                    } else {
+                        input.classList.remove("invalid");
+                        this[input.name+"error"].errorMessage = "";
+                    }
+                });
+
+                if (!hasErrors) {
+                    jQuery("#login-btn").prop("disabled","disabled");
+                    this.loginform['g-recaptcha-response']=jQuery(".login-captcha").find("textarea[name='g-recaptcha-response']").val();
+                    const postData = new FormData();
+                    for (const property in this.loginform) {
+                      postData.append(property,this.loginform[property]);
+                    }
+
+                    fetch(this.loginAction, {
+                            method: "POST",
+                            headers: {
+                                // "Content-Type": "application/json",
+                                Accept: "application/json",
+                            },
+                            body: postData,
+                        })
+                        .then((response) => response.json())
+                        .then((response) => {
+                            jQuery("#login-btn").prop("disabled",false);
+                            if (typeof response.errors != "undefined" && response.errors) {
+                                this.loginErrorMessage=response.message;
+                                grecaptcha.reset();
+
+                            } else {
+                                window.location.reload();
+                            }
+                        })
+
+                        .catch(() => {
+                            this.message = "Ooops! Something went wrong!";
+                        })
+                        .finally(() => {
+                            this.loading = false;
+                            this.buttonLabel = "Submit";
+                        });
+                } else {
+                    this.loading = false;
+                    // this.buttonLabel = "Add Web Application " ;
+                }
+            },
+            doRegister(){
+                this.buttonLabel = "Submitting...";
+                this.loading = true;
+                this.message = "";
+                var hasErrors = false;
+                this.inputElements = [...this.$el.querySelectorAll("input[data-rules]")];
+                this.inputElements.map((input) => {
+                    if (Iodine.is(input.value, JSON.parse(input.dataset.rules)) !== true) {
+                        const error = Iodine.is(input.value, JSON.parse(input.dataset.rules));
+                        event.preventDefault();
+                        input.classList.add("invalid");
+                        this[input.name+"error"].errorMessage = Iodine.getErrorMessage(error);
+                        hasErrors = true;
+                        grecaptcha.reset();
+
+                    } else {
+                        input.classList.remove("invalid");
+                        this[input.name+"error"].errorMessage = "";
+                    }
+                });
+                if (!hasErrors) {
+                    jQuery("#btn-register").prop("disabled","disabled");
+                    this.registerform['g-recaptcha-response']=jQuery(".registration-captcha").find("textarea[name='g-recaptcha-response']").val();
+                    const postData = new FormData();
+                    for (const property in this.registerform) {
+                      postData.append(property,this.registerform[property]);
+                    }
+
+                    fetch(this.registerAction, {
+                            method: "POST",
+                            headers: {
+                                // "Content-Type": "application/json",
+                                Accept: "application/json",
+                            },
+                            body: postData,
+                        })
+                        .then((response) => response.json())
+                        .then((response) => {
+                            jQuery("#btn-register").prop("disabled",false);
+                            if (typeof response.errors != "undefined" && response.errors) {
+                                this.registerErrorMessage=response.message;
+                                grecaptcha.reset();
+                            } else {
+                                window.location.reload();
+                            }
+                        })
+
+                        .catch(() => {
+                            this.message = "Ooops! Something went wrong!";
+                            grecaptcha.reset();
+                        })
+                        .finally(() => {
+                            this.loading = false;
+                            this.buttonLabel = "Submit";
+                        });
+                } else {
+                    this.loading = false;
+                    // this.buttonLabel = "Add Web Application " ;
+                }
+            },
+            doResetPass(){
+                this.buttonLabel = "Submitting...";
+                this.loading = true;
+                this.message = "";
+                var hasErrors = false;
+                this.inputElements = [...this.$el.querySelectorAll("input[data-rules]")];
+                this.inputElements.map((input) => {
+                    if (Iodine.is(input.value, JSON.parse(input.dataset.rules)) !== true) {
+                        const error = Iodine.is(input.value, JSON.parse(input.dataset.rules));
+                        event.preventDefault();
+                        input.classList.add("invalid");
+                        this[input.name+"error"].errorMessage = Iodine.getErrorMessage(error);
+                        hasErrors = true;
+                    } else {
+                        input.classList.remove("invalid");
+                        this[input.name+"error"].errorMessage = "";
+                    }
+                });
+                if (!hasErrors) {
+                    jQuery("#btn-resetpass").prop("disabled","disabled");
+                    this.resetform['g-recaptcha-response']=jQuery(".resetpass-captcha").find("textarea[name='g-recaptcha-response']").val();
+                    const postData = new FormData();
+                    for (const property in this.resetform) {
+                      postData.append(property,this.resetform[property]);
+                    }
+
+                    fetch(this.resetAction, {
+                            method: "POST",
+                            headers: {
+                                // "Content-Type": "application/json",
+                                Accept: "application/json",
+                            },
+                            body: postData,
+                        })
+                        .then((response) => response.json())
+                        .then((response) => {
+                            jQuery("#btn-resetpass").prop("disabled",false);
+                            if (typeof response.errors != "undefined" && response.errors) {
+                                this.resetErrorMessage=response.message;
+                                grecaptcha.reset();
+
+                            } else {
+                                this.resetSuccessMessage=response.message;
+                                for (const property in this.resetform) {
+                                  this.resetform[property]="";
+                                }
+                                grecaptcha.reset();
+                            }
+                        })
+
+                        .catch(() => {
+                            this.message = "Ooops! Something went wrong!";
+                        })
+                        .finally(() => {
+                            this.loading = false;
+                            this.buttonLabel = "Submit";
+                        });
+                } else {
+                    this.loading = false;
+                    // this.buttonLabel = "Add Web Application " ;
+                }
+            },
+            openRegisterationForm(e) {
+                e.preventDefault();
+                this.showlogin = false;
+                this.showresetpass = false;
+                this.showregister = true;
+            },
+            openLoginForm(e) {
+                e.preventDefault();
+                this.showlogin = true;
+                this.showresetpass = false;
+                this.showregister = false;
+            },
+            openResetForm(e) {
+                e.preventDefault();
+                this.showlogin = false;
+                this.showregister = false;
+                this.showresetpass = true;
+            }
+
+
+        }
+    }
+
+</script>

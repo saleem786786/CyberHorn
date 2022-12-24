@@ -1,0 +1,47 @@
+.hebrew .cyberlogo {right: 24px;left: inherit;}
+.hebrew .login-layout_inputsWrapper__1jd6B .login-form .login-title, 
+.hebrew .login-layout_inputsWrapper__1jd6B .login .login-title {text-align: right;}
+.hebrew .page-clientregister .row-centered, 
+/* .hebrew .row-centered {text-align: right;} */
+.hebrew .field_username input {padding: 0 40px 0 10px;}
+.hebrew .field_username img {right: 11px;left: inherit;}
+.hebrew .row-media a.btn.btn-info.btn-media i, 
+.hebrew .row-media a.btn.btn-info.btn-media i {margin: 0;}
+.hebrew .row-media a.btn.btn-info.btn-media:first-child {margin-left:10px !important;margin-right:0!important;}
+.hebrew .checkbox-styled {margin-left: 10px!important;margin-right: 0!important;}
+.hebrew .login-captcha .text-center.row {text-align: right;}
+.hebrew .recaptcha-container {margin-right: 15px;}
+.hebrew .backToSite {right: 24px;left: inherit;}
+.hebrew .backToSite img {transform: rotatey(180deg);}
+.hebrew .backToSite span {margin-left: 0;margin-right: 8px;}
+.hebrew form.login-form.login-first-step .form-group.field_username.mrgn svg {right: 10px;left: inherit;}
+.hebrew .field_username i {right: 13px;left: inherit;}
+.hebrew select#inputCountry {padding-right: 29px !important;}
+.hebrew .intl-tel-input.allow-dropdown .flag-container, .intl-tel-input.separate-dial-code 
+ .flag-container {right: 0;left: inherit;}
+.hebrew .iti-flag {background-image: url("../img/flags.png"); background-repeat: no-repeat;}
+.hebrew .intl-tel-input input{padding-left: 8px!important;}
+.hebrew .intl-tel-input.iti-sdc-5 input {padding-right: 100px !important;}
+.hebrew .intl-tel-input.iti-sdc-4 input {padding-right: 92px !important;}
+.hebrew .intl-tel-input.iti-sdc-3 input {padding-right: 85px !important;}
+.hebrew .intl-tel-input.iti-sdc-2 input {padding-right: 80px !important;}
+.hebrew .user-register-step-2 .row .col-md-12~h3.login-title { margin-right: 15px!important;}
+.hebrew form.login-form.login-first-step .registration-backbtn img {margin-right: 0;margin-left: 5px;transform: rotateY(180deg);}
+.hebrew .g-recaptcha iframe { }
+.page-login.hebrew .g-recaptcha iframe { }
+.hebrew .login-footer a{margin-right: 5px;}
+
+
+/*responsive start here*/
+@media screen and (max-width: 1067px){
+.hebrew .g-recaptcha iframe {margin-right: -45px;}
+}
+/*responsive end here*/
+
+
+.announcements-list.list-group-lg .announcement-date i {
+    margin-left: var(--spacing-1x);
+}
+#main-body{
+    background-color: transparent;
+}

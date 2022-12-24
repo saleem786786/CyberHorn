@@ -1,0 +1,248 @@
+/* Ripple effect */
+/* .ripple {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .ripple:hover {
+    background: rgb(230, 230, 230) radial-gradient(circle, transparent 1%, rgb(201, 201, 201) 1%) center/15000%;
+  }
+  .ripple:active {
+    background-color: white;
+    background-size: 100%;
+    transition: background 0s;
+  } */
+
+  .ripple {
+    position: relative;
+
+    display: block;
+    margin: 30px auto;
+    padding: 0;
+
+    overflow: hidden;
+
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    /* box-shadow: 0 1px 4px rgba(0, 0, 0, .6); */
+
+    background-color: #2ecc71;
+    color: #ecf0f1;
+
+    transition: background-color .3s;
+  }
+
+  .ripple:hover, .ripple:focus {
+    background-color: #27ae60;
+  }
+
+  .ripple > * {
+    position: relative;
+  }
+
+  .ripple span {
+    display: block;
+    padding: 12px 24px;
+  }
+
+  .ripple:before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+    width: 0;
+    padding-top: 0;
+
+    border-radius: 100%;
+
+    background-color: rgba(155, 162, 179, .3);
+
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .ripple:active:before {
+    width: 120%;
+    padding-top: 120%;
+
+    transition: width .2s ease-out, padding-top .2s ease-out;
+  }
+
+
+
+  .ripple.orange {
+    background-color: #e67e22;
+  }
+
+  .ripple.orange:hover, .ripple.orange:focus {
+    background-color: #d35400;
+  }
+
+  .ripple.red {
+    background-color: #e74c3c;
+  }
+
+  .ripple.red:hover, .ripple.red:focus {
+    background-color: #c0392b;
+  }
+
+  .login{
+    width: auto !important;
+  }
+
+  .row-media > a {
+    margin: 0px 10px !important;
+  }
+
+  .login-title {
+    font-size: 24px !important;
+    margin: 0px !important;
+    font-weight: 700 !important;
+}
+ /* 7-june-2022 end*/
+.reg-step-2{
+	max-width: 100%;
+}
+form.login-form.login-first-step {
+	width: 100% !important;
+	max-width: 630px;
+	margin: 0 auto;
+}
+.containers {
+	width: 100%;
+}
+form.login-form.login-first-step .field_username {
+	margin: 0% 0% !important;
+} 
+form.login-form.login-first-step  .form-control{
+	height: 50px;
+	background-color:transparent;
+  border: 1px solid #ced4da !important;
+  margin-bottom: 20px;
+  color: #2c2c2c;
+  font-size: 15px;
+}
+form.login-form.login-first-step h1.login-title{
+	margin-bottom: 30px !important;
+}
+form.login-form.login-first-step a.btn.btn-info.btn-media {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    border: 1px solid #2d34b2;
+    background: transparent;
+    border-radius: 50%;
+}
+body .page-clientregister .btn-media i, .page-login .btn-media i {
+    font-size: 20px !important;
+}
+.login-layout_LoginLayout__1IkN9 .login-layout_inputsWrapper__1jd6B {
+  max-width: 30% !important;
+  width: 100% !important;
+}
+.login-layout_LoginLayout__1IkN9 .login-layout_image__1HvSb{
+  max-width: 70%;
+  width: 100%;
+}
+input#btn-register {
+  background: #2d34b2 !important;
+  border-radius: 10px;
+  margin: 4% 0% !important;
+  width: 100% !important;
+}
+form.login-form.login-first-step .login-title{ 
+    margin-bottom: 20px !important;
+    margin-top: 40px !important;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+} 
+form.login-form.login-first-step .col-md-12{
+  float:unset;
+}
+.login-layout_LoginLayout__1IkN9 .login-layout_inputsWrapper__1jd6B{
+  background-color: #f5f6ff !important;
+}
+.page-clientregister .main-body {
+  background: #f5f6ff !important;
+}
+form.login-form.login-first-step .field_username i{
+  font-size: 17px;
+  color: #7077f6;
+}
+.row.term-nd-condition {
+  margin: 20px 0px ;
+}
+.row.term-nd-condition .form-group {
+  margin-bottom: 0px;
+}
+.captch-button-register {
+  margin-top: 30px;
+}
+.term-nd-condition  .col-lg-12 {
+  padding: 0;
+}
+.login-layout_inputsWrapper__1jd6B .app-main {
+  display: unset;
+  flex: unset !important;
+  width:100%;
+}
+form.login-form.login-first-step .login-footer {
+  padding-left: 0;
+  padding-right: 0;
+}
+form.login-form.login-first-step .registration-backbtn img {
+  margin-right: 5px;
+  width: 17px;
+}
+form.login-form.login-first-step .login-footer a {
+  font-weight: 700 !important;
+  color: #2d34b2 !important;
+  font-size: 15px;
+}
+form.login-form.login-first-step .form-group.field_username.mrgn {
+  position: relative;
+}
+form.login-form.login-first-step .form-group.field_username.mrgn svg {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+}
+form.login-form.login-first-step .form-group.field_username.mrgn svg path {
+  fill: #7077f6;
+}
+button#btn-register {
+  margin: 25px auto !important;
+  width: 100% !important;
+  border-radius: 10px;
+  background: #2d34b2 !important;
+}
+form.login-form.login-first-step a.btn.btn-info.btn-media i {
+  font-size: 20px !important;
+}
+.user-register.user-register-step-1.signup-step1 {
+  max-width: 360px;
+  margin: 0 auto;
+}
+@media (max-width: 1365px){
+  form.login-form.login-first-step{
+    padding-top: 20%;
+  }
+}
+@media (max-width: 1024px){
+  .login-layout_LoginLayout__1IkN9 .login-layout_inputsWrapper__1jd6B {
+    max-width: 100% !important;
+    width: 100% !important;
+    display:block !important;
+  }
+  form.login-form.login-first-step{
+    padding-top: 2%;
+  }
+}
+/* 7-june-2022 end*/
